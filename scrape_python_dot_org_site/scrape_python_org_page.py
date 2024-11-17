@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
-
-from base_scrapper import BaseScrapper
+from scrapper import BaseScrapper
 
 
 class ScrapePythonOrgPage(BaseScrapper):
