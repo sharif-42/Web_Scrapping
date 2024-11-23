@@ -2,37 +2,25 @@
 R&amp;D project on Web Scrapping
 
 ## Used Technology
-- Python
-- Selenium
+- Python 3.10+
+- Selenium 4.26.1+
 
 ## Installation
+### 1. Install the dependencies
+Traditionally, Selenium requires a WebDriver and a browser (like Chrome) to automate web interactions. However, 
+with Selenium 4.10 and above, you can bypass the need for a WebDriver in certain scenarios. This allows for more 
+flexible and efficient automation.
+```python
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
-### 1. Install Chrome Driver
-We need chrome driver to work with selenium
-- Check google Chrome version that is installed in your machine
-```commandline
-    google-chrome --version
+service = Service()
+options = webdriver.ChromeOptions()
+driver = webdriver.Chrome(service=service, options=options)
 ```
-- Install associated chromedriver. For more please visit [here](https://sites.google.com/chromium.org/driver/)
-- Then run the following commands
-```commandline
-    wget https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_linux64.zip # 99.0.4844.51 is the supported version 
-    unzip chromedriver_linux64.zip
-    sudo mv chromedriver /usr/bin/chromedriver
-    sudo chown root:root /usr/bin/chromedriver
-    sudo chmod +x /usr/bin/chromedriver
-```
-- Finally check the installed chromedriver version
-```commandline
-    chromedriver --version 
-```
+This approach eliminates the need for a separate WebDriver. Selenium handles the browser interaction internally.
 
 ### 2. Install other requirements
 ```commandline
     pip install -r requirements.txt
-```
-
-### Finally, run the project
-```commandline
-python scrapper.py
 ```
